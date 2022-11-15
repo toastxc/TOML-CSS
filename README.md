@@ -23,32 +23,27 @@ pub struct CsStruct {
 
 Once your object is named with the type RsCSS (short for Rust CSS) you can create an TOML config with the same name
 ```toml
+
 [example_div]
+# for more complex statements a dot can be used 
+border.style="solid"
+border.left={color="blue", width="2px"}
+border.right={color="red", width="4px"}
 
-# 'top level' properties can be simply defined by their names
-color = "white"
+# OR
 
-# objects with several properties can be defined in a group
-border={width="2px", radius="20px", style="solid", color="blue", left={set="hi", color="s"}}
+[example_div]
+border={style="solid", left={color="blue", width="2px"}, right={color="red", width="4px"}}
 
-
-# or as a single statement with 'self' (commented out to avoid errors)
-#border={self="2px solid #85101F"} 
-
-# just like normal CSS not all fields have to be met
-background={color="#85101F"}
 ```
 If the TOML is valid, it will be compiled to normal CSS
 ```css
 example_div {
-  border-left: hi;
-  border-left-color: s;
-  border-color: blue;
-  border-radius: 20px;
-  border-width: 2px;
-  border-style: solid;
-  
-  /* the rest is yet to be completed */
+border-left-color: blue;
+border-left-width: 2px;
+border-right-color: red;
+border-right-width: 4px;
+border-style: solid;
 }
 ```
 
