@@ -248,6 +248,178 @@ pub fn css_counter(struct_css: RsCSS) -> Vec<String> {
     return css_vec
 }
 
+pub fn css_flex(struct_css: RsCSS) -> Vec<String> {
+
+    let mut css_vec: Vec<String> = vec![];
+
+    let flex_wp = struct_css.flex;
+
+    if flex_wp !=  None {
+
+        let flex = flex_wp.unwrap();
+
+        if let Some(ref flex) = flex.set {
+            css_vec.push(format!("flex: {}", flex))};
+          
+        if let Some(ref flex) = flex.basis {
+            css_vec.push(format!("flex-basis: {}", flex))};
+
+        if let Some(ref flex) = flex.direction {
+            css_vec.push(format!("flex-direction: {}", flex))};
+
+        if let Some(ref flex) = flex.flow {
+            css_vec.push(format!("flex-flow: {}", flex))};
+
+        if let Some(ref flex) = flex.grow {
+            css_vec.push(format!("flex-grow: {}", flex))};
+
+        if let Some(ref flex) = flex.shrink {
+            css_vec.push(format!("flex-shrink: {}", flex))};
+
+        if let Some(ref flex) = flex.wrap {
+            css_vec.push(format!("flex-wrap: {}", flex))};
+    };
+    return css_vec
+}
+
+pub fn css_font(struct_css: RsCSS) -> Vec<String> {
+
+    let mut css_vec: Vec<String> = vec![];
+
+    let font_wp = struct_css.font;
+
+    if font_wp !=  None {
+
+        let font = font_wp.unwrap();
+
+        if let Some(ref font) = font.set {
+            css_vec.push(format!("font: {}", font))};
+    
+        if let Some(ref font) = font.family {
+            css_vec.push(format!("font-family: {}", font))};
+
+        if let Some(ref font) = font.size {
+            let size = font;
+            
+            if let Some(ref  size) = size.set {
+                css_vec.push(format!("font-size {}", size))};
+
+            if let Some(ref size) = font.adjust {
+                css_vec.push(format!("font-size-adjust: {}", size))};
+        };
+
+        if let Some(ref font) = font.strech {
+            css_vec.push(format!("font-strech: {}", font))};
+        
+        if let Some(ref font) = font.style {
+            css_vec.push(format!("font-style: {}", font))};
+
+        if let Some(ref font) = font.variant {
+            css_vec.push(format!("font-varient: {}", font))};
+
+        if let Some(ref font) = font.weight {
+            css_vec.push(format!("font-weight: {}", font))};
+ 
+    };
+    return css_vec
+}
+
+pub fn css_list_style(struct_css: RsCSS) -> Vec<String> {
+
+    let mut css_vec: Vec<String> = vec![];
+
+    let list_style_wp = struct_css.list_style;
+
+    if list_style_wp !=  None {
+
+        let list_style= list_style_wp.unwrap();
+
+        if let Some(ref list_style) = list_style.set {
+            css_vec.push(format!("list-style: {}", list_style))};
+          
+        if let Some(ref list_style) = list_style.image {
+            css_vec.push(format!("list-style-image: {}", list_style))};
+
+        if let Some(ref list_style) = list_style.position {
+            css_vec.push(format!("list-style-position: {}", list_style))};
+
+        if let Some(ref list_style) = list_style.type_ {
+            css_vec.push(format!("list-style-type: {}", list_style))};
+
+    };
+    return css_vec
+
+}
+
+pub fn css_margin(struct_css: RsCSS) -> Vec<String> {
+
+    let mut css_vec: Vec<String> = vec![];
+
+    let margin_wp = struct_css.margin;
+
+    if margin_wp !=  None {
+
+        let margin = margin_wp.unwrap();
+
+        if let Some(ref margin) = margin.set {
+            css_vec.push(format!("margin: {}", margin))};
+        
+        if let Some(ref margin) = margin.bottom {
+            css_vec.push(format!("margin-bottom: {}", margin))};
+
+        if let Some(ref margin) = margin.left {
+            css_vec.push(format!("margin-left: {}", margin))};
+
+        if let Some(ref margin) = margin.right{
+            css_vec.push(format!("margin-right: {}", margin))};
+
+        if let Some(ref margin) = margin.top {
+            css_vec.push(format!("margin-top: {}", margin))};
+    };
+    return css_vec
+}
+
+pub fn css_max(struct_css: RsCSS) -> Vec<String> {
+
+    let mut css_vec: Vec<String> = vec![];
+
+    let max_wp = struct_css.max;
+
+    if max_wp !=  None {
+
+        let max = max_wp.unwrap();
+
+        if let Some(ref max) = max.height {
+            css_vec.push(format!("max-height: {}", max))};
+           
+        if let Some(ref max) = max.width {
+            css_vec.push(format!("max-width: {}", max))};
+    };
+    return css_vec
+}
+
+pub fn css_min(struct_css: RsCSS) -> Vec<String> {
+
+    let mut css_vec: Vec<String> = vec![];
+
+    let min_wp = struct_css.min;
+
+    if min_wp !=  None {
+
+        let min = min_wp.unwrap();
+
+        if let Some(ref min) = min.height {
+            css_vec.push(format!("min-height: {}", min))};
+
+        if let Some(ref min) = min.width {
+            css_vec.push(format!("min-width: {}", min))};
+    }; 
+    return css_vec
+}
+
+
+
+
 
 // template
 /*

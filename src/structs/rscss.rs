@@ -273,7 +273,7 @@ pub struct Font {
 #[derive(Serialize, Deserialize, Debug, PartialEq, Clone)]
 pub struct FontSize {
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub set: Option<String>,
+    pub set:Option<String>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub adjust: Option<String>,
 
@@ -291,7 +291,10 @@ pub struct ListStyle {
     pub type_: Option<String>,
 }
 #[derive(Serialize, Deserialize, Debug, PartialEq, Clone)]
-pub struct Margin {
+pub struct Margin { 
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub set: Option<String>,
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub bottom: Option<String>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub left: Option<String>,

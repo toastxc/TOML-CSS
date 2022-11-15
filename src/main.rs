@@ -51,18 +51,14 @@ fn css_compiler(struct_css: RsCSS) {
 
     // for each section of CSS
 
-    // background
     let background = if struct_css.background != None {
         css_background(struct_css.clone()) 
     }else {
         vec![] 
     };
-
     for x in 0..background.len() {
-        css = format!("{css}\n{};", background[x]);};
-
-
-    // border
+        css = format!("{css}\n{};", background[x]);
+    };
     let border = if struct_css.border != None {
         css_border(struct_css.clone())
     } else {
@@ -71,13 +67,9 @@ fn css_compiler(struct_css: RsCSS) {
     for x in 0..border.len() {
         css = format!("{css}\n{};", border[x]);
     };
-    
-    // bottom
     if struct_css.bottom != None {
         css = format!("{css}\nbottom: {};", struct_css.bottom.as_ref().unwrap());
     }; 
-
-    // box_
     let box_ = if struct_css.box_ != None {
         css_box(struct_css.clone())
     } else {
@@ -86,7 +78,6 @@ fn css_compiler(struct_css: RsCSS) {
     for x in 0..box_.len() {
         css = format!("{css}\n{};", box_[x]);
     };
-
     if struct_css.caption_side != None {
         css = format!("{css}\ncaption_side: {};", struct_css.caption_side.as_ref().unwrap());
     };
@@ -108,12 +99,10 @@ fn css_compiler(struct_css: RsCSS) {
     for x in 0..column.len() {
         css = format!("{css}\n{};", column[x]);
     };
-       
     if struct_css.content != None {
         css = format!("{css}\ncontent: {};", struct_css.content.as_ref().unwrap());
     };
-
-     let counter = if struct_css.counter != None {
+    let counter = if struct_css.counter != None {
         css_counter(struct_css.clone())
     }else {
         vec![]
@@ -121,15 +110,84 @@ fn css_compiler(struct_css: RsCSS) {
     for x in 0..counter.len() {
         css = format!("{css}\n{};", counter[x]);
     };
-
-
-
-
-
-
-
-
-
+    if struct_css.cursor != None {
+        css = format!("{css}\ncursor: {};", struct_css.cursor.as_ref().unwrap());
+    };
+    if struct_css.direction != None {
+        css = format!("{css}\ndirection: {};", struct_css.direction.as_ref().unwrap());
+    };
+    if struct_css.display != None {
+        css = format!("{css}\ndisplay: {};", struct_css.display.as_ref().unwrap());
+    };
+    if struct_css.empty_cells != None {
+        css = format!("{css}\nempty-cells: {};", struct_css.empty_cells.as_ref().unwrap());
+    }; 
+    let flex = if struct_css.flex != None {
+        css_flex(struct_css.clone())
+    }else {
+        vec![]
+    };
+    for x in 0..flex.len() {
+        css = format!("{css}\n{};", flex[x]);
+    };
+    if struct_css.float != None {
+        css = format!("{css}\nfloat: {};", struct_css.float.as_ref().unwrap());
+    };
+    let font = if struct_css.font != None {
+        css_font(struct_css.clone())
+    }else {
+        vec![]
+    };
+    for x in 0..font.len() {
+        css = format!("{css}\n{};", font[x]);
+    };
+    if struct_css.height != None {
+        css = format!("{css}\nheight: {};", struct_css.height.as_ref().unwrap());
+    };
+    if struct_css.justify_content != None {
+        css = format!("{css}\njustify-content: {};", struct_css.justify_content.as_ref().unwrap());
+    };
+    if struct_css.left != None {
+        css = format!("{css}\nleft: {};", struct_css.left.as_ref().unwrap());
+    };
+    if struct_css.letter_spacing != None {
+        css = format!("{css}\nletter-spacing: {};", struct_css.letter_spacing.as_ref().unwrap());
+    };
+    if struct_css.line_height != None {
+        css = format!("{css}\nline-height: {};", struct_css.line_height.as_ref().unwrap());
+    };
+    let list_style= if struct_css.list_style != None {
+        css_list_style(struct_css.clone())
+    }else {
+        vec![]
+    };
+    for x in 0..list_style.len() {
+        css = format!("{css}\n{};", list_style[x]);
+    };
+    let margin = if struct_css.margin != None {
+        css_margin(struct_css.clone())
+    }else {
+        vec![]
+    };
+    for x in 0..margin.len() {
+        css = format!("{css}\n{};", margin[x]);
+    };
+    let max = if struct_css.max != None {
+        css_max(struct_css.clone())
+    }else {
+        vec![]
+    };
+    for x in 0..max.len() {
+        css = format!("{css}\n{};", max[x]);
+    };
+    let min = if struct_css.min != None {
+        css_min(struct_css.clone())
+    }else {
+        vec![]
+    };
+    for x in 0..min.len() {
+        css = format!("{css}\n{};", min[x]);
+    };
 
 
     // end 
