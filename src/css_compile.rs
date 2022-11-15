@@ -417,8 +417,125 @@ pub fn css_min(struct_css: RsCSS) -> Vec<String> {
     return css_vec
 }
 
+pub fn css_outline(struct_css: RsCSS) -> Vec<String> {
 
+    let mut css_vec: Vec<String> = vec![];
 
+    let outline_wp = struct_css.outline;
+
+    if outline_wp !=  None {
+
+        let outline = outline_wp.unwrap();
+
+        if let Some(ref outline) = outline.set {
+            css_vec.push(format!("outline: {}", outline))};
+         
+        if let Some(ref outline) = outline.color {
+            css_vec.push(format!("outline-color: {}", outline))};
+         
+        if let Some(ref outline) = outline.offset {
+            css_vec.push(format!("outline-offset: {}", outline))};
+         
+        if let Some(ref outline) = outline.style {
+            css_vec.push(format!("outline-style: {}", outline))};
+
+        if let Some(ref outline) = outline.width {
+            css_vec.push(format!("outline-width: {}", outline))};
+    };
+    return css_vec
+
+}
+
+pub fn css_overflow(struct_css: RsCSS) -> Vec<String> {
+
+    let mut css_vec: Vec<String> = vec![];
+
+    let overflow_wp = struct_css.overflow;
+
+    if overflow_wp !=  None {
+
+        let overflow = overflow_wp.unwrap();
+
+        if let Some(ref overflow) = overflow.set {
+            css_vec.push(format!("overflow: {}", overflow))};
+           
+        if let Some(ref overflow) = overflow.x {
+            css_vec.push(format!("overflow-x: {}", overflow))};
+                
+        if let Some(ref overflow) = overflow.y {
+            css_vec.push(format!("overflow-y: {}", overflow))};
+    };
+    return css_vec
+}
+pub fn css_padding(struct_css: RsCSS) -> Vec<String> {
+
+    let mut css_vec: Vec<String> = vec![];
+
+    let padding_wp = struct_css.padding;
+
+    if padding_wp !=  None {
+
+        let padding = padding_wp.unwrap();
+
+        if let Some(ref padding) = padding.set {
+            css_vec.push(format!("padding: {}", padding))};
+
+        if let Some(ref padding) = padding.bottom {
+            css_vec.push(format!("padding-bottom: {}", padding))};
+
+        if let Some(ref padding) = padding.left {
+            css_vec.push(format!("padding-left: {}", padding))};
+
+        if let Some(ref padding) = padding.right{
+            css_vec.push(format!("padding-right: {}", padding))};
+
+        if let Some(ref padding) = padding.top {
+            css_vec.push(format!("padding-top: {}", padding))};
+
+    };
+    return css_vec
+
+}
+pub fn css_page_break(struct_css: RsCSS) -> Vec<String> {
+
+    let mut css_vec: Vec<String> = vec![];
+
+    let page_break_wp = struct_css.page_break;
+
+    if page_break_wp !=  None {
+
+        let page_break = page_break_wp.unwrap();
+
+        if let Some(ref page_break) = page_break.after {
+            css_vec.push(format!("page-break-after: {}", page_break))};
+    
+        if let Some(ref page_break) = page_break.before {
+            css_vec.push(format!("page-break-before: {}", page_break))};
+
+        if let Some(ref page_break) = page_break.inside {
+            css_vec.push(format!("page-break-inside: {}", page_break))};
+
+    };
+    return css_vec
+}
+pub fn css_perspective(struct_css: RsCSS) -> Vec<String> {
+
+    let mut css_vec: Vec<String> = vec![];
+
+    let perspective_wp = struct_css.perspective;
+
+    if perspective_wp !=  None {
+
+        let perspective = perspective_wp.unwrap();
+
+        if let Some(ref perspective) = perspective.set {
+            css_vec.push(format!("perspective: {}", perspective))};
+
+        if let Some(ref perspective) = perspective.origin {
+            css_vec.push(format!("perspective-origin: {}", perspective))};
+    };
+    return css_vec
+}
 
 
 // template
@@ -437,7 +554,6 @@ pub fn css_h(struct_css: RsCSS) -> Vec<String> {
             css_vec.push(format!("h: {}", h))};
     };
     return css_vec
-
 }
 
 

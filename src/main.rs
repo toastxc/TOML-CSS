@@ -188,6 +188,79 @@ fn css_compiler(struct_css: RsCSS) {
     for x in 0..min.len() {
         css = format!("{css}\n{};", min[x]);
     };
+      
+    if struct_css.opacity != None {
+        css = format!("{css}\nopacity: {};", struct_css.opacity.as_ref().unwrap());
+    };
+      
+    if struct_css.order != None {
+        css = format!("{css}\norder: {};", struct_css.order.as_ref().unwrap());
+    };
+      
+    let outline = if struct_css.outline != None {
+        css_outline(struct_css.clone())
+    }else {
+        vec![]
+    };
+    for x in 0..outline.len() {
+        css = format!("{css}\n{};", outline[x]);
+    };
+
+     
+    let overflow = if struct_css.overflow != None {
+        css_overflow(struct_css.clone())
+    }else {
+        vec![]
+    };
+    for x in 0..overflow.len() {
+        css = format!("{css}\n{};", overflow[x]);
+    };   
+    let padding = if struct_css.padding != None {
+        css_padding(struct_css.clone())
+    }else {
+        vec![]
+    };
+    for x in 0..padding.len() {
+        css = format!("{css}\n{};", padding[x]);
+    };
+
+     
+    let page_break = if struct_css.page_break != None {
+        css_page_break(struct_css.clone())
+    }else {
+        vec![]
+    };
+    for x in 0..page_break.len() {
+        css = format!("{css}\n{};", page_break[x]);
+    }; 
+
+     let perspective = if struct_css.perspective != None {
+        css_perspective(struct_css.clone())
+    }else {
+        vec![]
+    };
+    for x in 0..perspective.len() {
+        css = format!("{css}\n{};", perspective[x]);
+    };
+
+    if struct_css.position != None {
+        css = format!("{css}\nh: {};", struct_css.position.as_ref().unwrap());
+    };
+    if struct_css.quotes != None {
+        css = format!("{css}\nquotes: {};", struct_css.quotes.as_ref().unwrap());
+    };
+    if struct_css.resize != None {
+        css = format!("{css}\nresize: {};", struct_css.resize.as_ref().unwrap());
+    };
+    if struct_css.right != None {
+        css = format!("{css}\nright: {};", struct_css.right.as_ref().unwrap());
+    };
+    if struct_css.tab_size != None {
+        css = format!("{css}\ntab-size: {};", struct_css.tab_size.as_ref().unwrap());
+    };
+    if struct_css.table_layout != None {
+        css = format!("{css}\ntable-layout: {};", struct_css.table_layout.as_ref().unwrap());
+    };
 
 
     // end 
