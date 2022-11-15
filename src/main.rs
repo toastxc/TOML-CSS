@@ -261,7 +261,14 @@ fn css_compiler(struct_css: RsCSS) {
     if struct_css.table_layout != None {
         css = format!("{css}\ntable-layout: {};", struct_css.table_layout.as_ref().unwrap());
     };
-
+    let text = if struct_css.text != None {
+        css_text(struct_css.clone())
+    }else {
+        vec![]
+    };
+    for x in 0..text.len() {
+        css = format!("{css}\n{};", text[x]);
+    };
 
     // end 
 

@@ -536,6 +536,62 @@ pub fn css_perspective(struct_css: RsCSS) -> Vec<String> {
     };
     return css_vec
 }
+pub fn css_text(struct_css: RsCSS) -> Vec<String> {
+
+    let mut css_vec: Vec<String> = vec![];
+
+    let text_wp = struct_css.text;
+
+    if text_wp !=  None {
+
+        let text = text_wp.unwrap();
+
+        if let Some(ref text) = text.align {
+            
+            let align = text;
+
+            if let Some(ref align) = align.set {
+                css_vec.push(format!("text-align: {}", align))};
+        
+            if let Some(ref align) = align.last {
+                css_vec.push(format!("text-align-last: {}", align))};
+        };
+        if let Some(ref text) = text.decoration {
+            
+            let decoration = text;
+            
+            if let Some(ref decoration) = decoration.set {
+                css_vec.push(format!("text-decoration: {}", decoration))};
+            
+            if let Some(ref decoration) = decoration.color {
+                css_vec.push(format!("text-decoration-color: {}", decoration))};
+
+            if let Some(ref decoration) = decoration.line {
+                css_vec.push(format!("text-decoration-line: {}", decoration))};
+
+            if let Some(ref decoration) = decoration.style {
+                css_vec.push(format!("text-decoration-style: {}", decoration))};
+        };
+          
+        if let Some(ref text) = text.indent {
+            css_vec.push(format!("text-indent: {}", text))};
+
+         
+        if let Some(ref text) = text.justify{
+            css_vec.push(format!("text-justify: {}", text))};
+
+        if let Some(ref text) = text.overflow{
+            css_vec.push(format!("text-overflow: {}", text))};
+
+        if let Some(ref text) = text.shadow{
+            css_vec.push(format!("text-shadow: {}", text))};
+
+        if let Some(ref text) = text.transform{
+            css_vec.push(format!("text-transform: {}", text))};
+
+    };
+    return css_vec
+}
 
 
 // template

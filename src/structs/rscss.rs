@@ -369,7 +369,7 @@ pub struct Perspective {
 #[derive(Serialize, Deserialize, Debug, PartialEq, Clone)]
 pub struct Text {
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub allign: Option<TextAllign>,
+    pub align: Option<TextAllign>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub decoration: Option<TextDecoration>,
     #[serde(skip_serializing_if = "Option::is_none")]
