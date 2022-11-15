@@ -1,0 +1,26 @@
+# welcome to RsCSS
+# This is where CSS will be stored for yew.rs
+
+# example usage
+
+
+[example_div]
+# not a CSS value, but used to identify config name
+name = "w"
+
+# 'top level' properties can be simply defined by their names
+color = "white"
+
+
+# objects with several properties can be defined in a group
+#border={width="2px", radius="20px", style="solid", color="blue", left={set="hi", color="s"}}
+
+border={set="aaa"}
+
+
+# or as a single statement with 'self' (commented out to avoid errors)
+#border={self="2px solid #85101F"} 
+
+
+# just like normal CSS not all fields have to be met
+background={color="#85101F"}
