@@ -270,6 +270,53 @@ fn css_compiler(struct_css: RsCSS) {
         css = format!("{css}\n{};", text[x]);
     };
 
+     if struct_css.top != None {
+        css = format!("{css}\ntop: {};", struct_css.top.as_ref().unwrap());
+    };
+    let transform = if struct_css.transform != None {
+        css_transform(struct_css.clone())
+    }else {
+        vec![]
+    };
+    for x in 0..transform.len() {
+        css = format!("{css}\n{};", transform[x]);
+    };
+
+    let transition = if struct_css.transition != None {
+        css_transition(struct_css.clone())
+    }else {
+        vec![]
+    };
+    for x in 0..transition.len() {
+        css = format!("{css}\n{};", transition[x]);
+    };
+
+    if struct_css.vertical_align != None {
+        css = format!("{css}\nvertical_align: {};", struct_css.vertical_align.as_ref().unwrap());
+    };
+
+    if struct_css.white_space != None {
+        css = format!("{css}\nwhite-space: {};", struct_css.white_space.as_ref().unwrap());
+    };
+     
+    if struct_css.width != None {
+        css = format!("{css}\nwidth: {};", struct_css.width.as_ref().unwrap());
+    };
+    let word = if struct_css.word != None {
+        css_word(struct_css.clone())
+    }else {
+        vec![]
+    };
+    for x in 0..word.len() {
+        css = format!("{css}\n{};", word[x]);
+    };
+
+
+      
+    if struct_css.z_index != None {
+        css = format!("{css}\nz_index: {};", struct_css.z_index.as_ref().unwrap());
+    };
+
     // end 
 
     css += "\n}";

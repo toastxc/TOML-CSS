@@ -100,6 +100,8 @@ pub struct RsCSS {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub transition: Option<Transition>,
     #[serde(skip_serializing_if = "Option::is_none")]
+    pub vertical_align: Option<String>,
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub visablity: Option<String>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub white_space: Option<String>,
@@ -108,7 +110,7 @@ pub struct RsCSS {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub word: Option<Word>,
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub x_index: Option<String>,
+    pub z_index: Option<String>,
 
 
 

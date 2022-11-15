@@ -593,6 +593,78 @@ pub fn css_text(struct_css: RsCSS) -> Vec<String> {
     return css_vec
 }
 
+pub fn css_transform(struct_css: RsCSS) -> Vec<String> {
+
+    let mut css_vec: Vec<String> = vec![];
+
+    let transform_wp = struct_css.transform;
+
+    if transform_wp !=  None {
+
+        let transform = transform_wp.unwrap();
+
+        if let Some(ref transform) = transform.set {
+            css_vec.push(format!("transform: {}", transform))};
+          
+        if let Some(ref transform) = transform.origin {
+            css_vec.push(format!("transform-origin: {}", transform))};
+
+        if let Some(ref transform) = transform.style {
+            css_vec.push(format!("transform-style: {}", transform))};
+
+    };
+    return css_vec
+}
+
+pub fn css_transition(struct_css: RsCSS) -> Vec<String> {
+
+    let mut css_vec: Vec<String> = vec![];
+
+    let transition_wp = struct_css.transition;
+
+    if transition_wp !=  None {
+
+        let transition = transition_wp.unwrap();
+
+        if let Some(ref transition) = transition.set {
+            css_vec.push(format!("transition: {}", transition))};
+        
+        if let Some(ref transition) = transition.delay {
+            css_vec.push(format!("transition-delay: {}", transition))};
+
+        if let Some(ref transition) = transition.property {
+            css_vec.push(format!("transition-property: {}", transition))};
+
+        if let Some(ref transition) = transition.timing_function {
+            css_vec.push(format!("transition-timing-function: {}", transition))};
+    };
+    return css_vec
+}
+
+pub fn css_word(struct_css: RsCSS) -> Vec<String> {
+
+    let mut css_vec: Vec<String> = vec![];
+
+    let word_wp = struct_css.word;
+
+    if word_wp !=  None {
+
+        let word = word_wp.unwrap();
+
+        if let Some(ref word) = word.break_ {
+            css_vec.push(format!("word-break: {}", word))};
+        
+        if let Some(ref word) = word.spacing {
+            css_vec.push(format!("word-spacing: {}", word))};
+
+        if let Some(ref word) = word.wrap {
+            css_vec.push(format!("word-wrap: {}", word))};
+
+    };
+    return css_vec
+}
+
+
 
 // template
 /*
