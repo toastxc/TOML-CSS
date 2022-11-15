@@ -43,7 +43,7 @@ fn css_import()  -> CsStruct{
 }
 
 
-fn css_compiler(struct_css: RsCSS) {
+fn css_compiler(struct_css: RsCSS) -> String {
 
       
     let mut finvec: Vec<String> = vec![];
@@ -321,7 +321,7 @@ fn css_compiler(struct_css: RsCSS) {
 
     css += "\n}";
 
-    println!("{}", css);
+    return css
 
 /*
    STRUCTURED
@@ -350,12 +350,14 @@ fn css_compiler(struct_css: RsCSS) {
 fn main() {
 
     // toml to struct
-    let div1 = css_import();
+    let css = css_import();
 
    
     // struct to CSS
-    css_compiler(div1.example_div);
 
+    let example = css_compiler(css.example_div);
+
+    println!("{}", example); 
         
 }
 

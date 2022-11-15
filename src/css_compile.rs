@@ -107,10 +107,10 @@ pub fn css_border(struct_css: RsCSS) -> Vec<String> {
             css_vec.push(format!("border-radius: {}", border))};
 
         if let Some(ref border) = border.width {
-            css_vec.push(format!("border: {}", border))};
+            css_vec.push(format!("border-width: {}", border))};
 
         if let Some(ref border) = border.style {
-            css_vec.push(format!("border: {}", border))};
+            css_vec.push(format!("border-style: {}", border))};
 
     };
 
