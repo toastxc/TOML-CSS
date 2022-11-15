@@ -205,10 +205,18 @@ pub struct Column {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub gap: Option<String>,
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub rule: Option<ColumnRule>
+    pub rule: Option<ColumnRule>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub span: Option<String>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub width: Option<String>,
+
+
 }
 #[derive(Serialize, Deserialize, Debug, PartialEq, Clone)]
 pub struct ColumnRule {
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub set: Option<String>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub color: Option<String>,
     #[serde(skip_serializing_if = "Option::is_none")]

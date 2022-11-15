@@ -181,3 +181,94 @@ pub fn css_box(struct_css: RsCSS) -> Vec<String> {
 
     return css_vec
 }
+pub fn css_column(struct_css: RsCSS) -> Vec<String> {
+
+    let mut css_vec: Vec<String> = vec![];
+
+    let column_wp = struct_css.column;
+
+    if column_wp !=  None {
+
+        let column = column_wp.unwrap();
+
+        if let Some(ref column) = column.set {
+            css_vec.push(format!("columns: {}", column))};
+
+        if let Some(ref column) = column.count {
+            css_vec.push(format!("column-count: {}", column))};
+
+        if let Some(ref column) = column.fill {
+            css_vec.push(format!("column-fill: {}", column))};
+
+
+        if let Some(ref column) = column.gap {
+            css_vec.push(format!("column-gap: {}", column))};
+
+        if let Some(ref column) = column.rule {
+            let rule = column;
+
+            if let Some(ref rule) = rule.set{
+                css_vec.push(format!("column-rule: {}", rule))};
+
+            if let Some(ref rule) = rule.color {
+                css_vec.push(format!("column-rule-color: {}", rule))};
+
+            if let Some(ref rule) = rule.style{
+                css_vec.push(format!("column-rule-style: {}", rule))};
+
+            if let Some(ref rule) = rule.width{
+                css_vec.push(format!("column-rule-width: {}", rule))};
+        };
+        if let Some(ref column) = column.span{
+            css_vec.push(format!("column-span: {}", column))};
+
+        if let Some(ref column) = column.width {
+            css_vec.push(format!("column-width: {}", column))};
+    };
+    return css_vec
+}
+
+// counter
+pub fn css_counter(struct_css: RsCSS) -> Vec<String> {
+
+    let mut css_vec: Vec<String> = vec![];
+
+    let counter_wp = struct_css.counter;
+
+    if counter_wp !=  None {
+
+        let counter = counter_wp.unwrap();
+
+        if let Some(ref counter) = counter.increment {
+            css_vec.push(format!("counter-increment: {}", counter))};
+     
+        if let Some(ref counter) = counter.reset {
+            css_vec.push(format!("counter-reset: {}", counter))};
+    };
+    return css_vec
+}
+
+
+// template
+/*
+pub fn css_h(struct_css: RsCSS) -> Vec<String> {
+
+    let mut css_vec: Vec<String> = vec![];
+
+    let h_wp = struct_css.h;
+
+    if h_wp !=  None {
+
+        let h = h_wp.unwrap();
+
+        if let Some(ref h) = h.h {
+            css_vec.push(format!("h: {}", h))};
+    };
+    return css_vec
+
+}
+
+
+*/
+
+

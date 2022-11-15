@@ -87,6 +87,50 @@ fn css_compiler(struct_css: RsCSS) {
         css = format!("{css}\n{};", box_[x]);
     };
 
+    if struct_css.caption_side != None {
+        css = format!("{css}\ncaption_side: {};", struct_css.caption_side.as_ref().unwrap());
+    };
+    if struct_css.clear != None {
+        css = format!("{css}\nclear: {};", struct_css.clear.as_ref().unwrap());
+    };
+    if struct_css.clip != None {
+        css = format!("{css}\nclip {};", struct_css.clip.as_ref().unwrap());
+    };
+    if struct_css.color != None {
+        css = format!("{css}\ncolor: {};", struct_css.color.as_ref().unwrap());
+    };
+    // column
+    let column = if struct_css.column != None {
+        css_column(struct_css.clone())
+    }else {
+        vec![]
+    };
+    for x in 0..column.len() {
+        css = format!("{css}\n{};", column[x]);
+    };
+       
+    if struct_css.content != None {
+        css = format!("{css}\ncontent: {};", struct_css.content.as_ref().unwrap());
+    };
+
+     let counter = if struct_css.counter != None {
+        css_counter(struct_css.clone())
+    }else {
+        vec![]
+    };
+    for x in 0..counter.len() {
+        css = format!("{css}\n{};", counter[x]);
+    };
+
+
+
+
+
+
+
+
+
+
 
     // end 
 
