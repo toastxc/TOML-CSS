@@ -8,7 +8,7 @@ use serde::{Deserialize, Serialize};
 
 
 
-#[derive(Serialize, Deserialize, Default, Debug)]
+#[derive(Serialize, Deserialize, Default, Debug, PartialEq)]
 pub struct RsCSS {
  //   pub css: File,
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -184,7 +184,7 @@ pub struct Border_LR {
 }
 
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, PartialEq)]
 pub struct Box_ {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub shadow: Option<String>,
@@ -192,7 +192,7 @@ pub struct Box_ {
     pub sizing: Option<String>,
 }
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, PartialEq)]
 pub struct Column {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub set: Option<String>,
@@ -205,7 +205,7 @@ pub struct Column {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub rule: Option<ColumnRule>
 }
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, PartialEq)]
 pub struct ColumnRule {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub color: Option<String>,
@@ -215,7 +215,7 @@ pub struct ColumnRule {
     pub width: Option<String>,
 }
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, PartialEq)]
 pub struct Counter {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub increment: Option<String>,
@@ -223,7 +223,7 @@ pub struct Counter {
     pub reset: Option<String>,
 }
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, PartialEq)]
 pub struct Flex {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub set: Option<String>,
@@ -241,7 +241,7 @@ pub struct Flex {
     pub wrap: Option<String>,
 } 
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, PartialEq)]
 pub struct Font {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub set: Option<String>,
@@ -260,7 +260,7 @@ pub struct Font {
 
 }
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, PartialEq)]
 pub struct FontSize {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub set: Option<String>,
@@ -269,7 +269,7 @@ pub struct FontSize {
 
 }
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, PartialEq)]
 pub struct ListStyle {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub set: Option<String>,
@@ -280,7 +280,7 @@ pub struct ListStyle {
     #[serde(skip_serializing_if = "Option::is_none", rename = "type")]
     pub type_: Option<String>,
 }
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, PartialEq)]
 pub struct Margin {
     pub bottom: Option<String>,
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -291,14 +291,14 @@ pub struct Margin {
     pub top: Option<String>,
 }
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, PartialEq)]
 pub struct MaxMin {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub height: Option<String>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub width: Option<String>,
 }
-#[derive(Serialize, Deserialize,Debug)]
+#[derive(Serialize, Deserialize,Debug, PartialEq)]
 pub struct Outline {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub set: Option<String>,
@@ -312,7 +312,7 @@ pub struct Outline {
     pub width: Option<String>,
 }
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, PartialEq)]
 pub struct Overflow {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub set: Option<String>,
@@ -322,7 +322,7 @@ pub struct Overflow {
     pub y: Option<String>,
 }
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, PartialEq)]
 pub struct Padding {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub set: Option<String>,
@@ -336,7 +336,7 @@ pub struct Padding {
     pub top: Option<String>,
 }
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, PartialEq)]
 pub struct PageBreak {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub after: Option<String>,
@@ -345,7 +345,7 @@ pub struct PageBreak {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub inside: Option<String>,
 }
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, PartialEq)]
 pub struct Perspective {    
     #[serde(skip_serializing_if = "Option::is_none")]
     pub set: Option<String>,
@@ -353,7 +353,7 @@ pub struct Perspective {
     pub origin: Option<String>,
 }
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, PartialEq)]
 pub struct Text {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub allign: Option<TextAllign>,
@@ -370,7 +370,7 @@ pub struct Text {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub transform: Option<String>,
 }    
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, PartialEq)]
 pub struct TextAllign {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub set: Option<String>,
@@ -378,7 +378,7 @@ pub struct TextAllign {
     pub last: Option<String>,
 }
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, PartialEq)]
 pub struct TextDecoration {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub set: Option<String>,
@@ -390,7 +390,7 @@ pub struct TextDecoration {
     pub style: Option<String>,
 }
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, PartialEq)]
 pub struct Transform {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub set: Option<String>,
@@ -400,7 +400,7 @@ pub struct Transform {
     pub style: Option<String>,
 }
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, PartialEq)]
 pub struct Transition {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub set: Option<String>,
@@ -415,7 +415,7 @@ pub struct Transition {
 
 }
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, PartialEq)]
 pub struct Word {
     #[serde(skip_serializing_if = "Option::is_none", rename = "break")]
     pub break_: Option<String>,

@@ -16,15 +16,19 @@ use serde_derive::Deserialize;
 
 use serde::{Serialize};
 
+pub mod css_compile;
+
+use css_compile::*;
+
 
 // add to here to create new items in 
-#[derive(Serialize, Deserialize, Default, Debug)]
+#[derive(Serialize, Deserialize, Default, Debug, PartialEq)]
 pub struct CsStruct {
     pub example_div: RsCSS,
 }
 
 
-fn cs2()  -> CsStruct{    
+fn css_import()  -> CsStruct{    
 
     let css_file = fs_to_string("css.toml")
         .expect("failed to read CSS file");
@@ -39,65 +43,33 @@ fn cs2()  -> CsStruct{
 }
 
 
-fn struct_to_css(struct_css: RsCSS) {
+fn css_compiler(struct_css: RsCSS) {
 
+      
+    let mut finvec: Vec<String> = vec![];
+    let mut css = "div {\n".to_string();
 
-
-
-    
-    let mut css_vec: Vec<String> = vec![];
-
-    // border 
-    
-    let border_wp = struct_css.border;    
-    
-   
-    
-    if border_wp != None {
-        
-        let border = border_wp.unwrap();
-
-        if let Some(ref border_wp) = border.left {
-
-            let left = border.left.unwrap();
-
-              
-            if let Some(ref left) = left.set {
-                println!("set!!");
-                css_vec.push(format!("border-left: {}", left));
-            };
-            if let Some(ref left) = left.color {
-                println!("color!!");
-                css_vec.push(format!("border-left-color: {}", left));
-            };
-
-
-        };
-
-        // prefered method
-        if let Some(ref border) = border.set {
-        css_vec.push(format!("border: {}", border))};
-
-
-
-        // old method
-        if let Some(ref border_wp) = border.color{
-        css_vec.push(format!("border-color: {}", border.color.as_ref().unwrap()));};
-
-
-        if let Some(ref border_wp) = border.radius{
-        css_vec.push(format!("border-radius: {}", border.radius.as_ref().unwrap()));};
-
-        if let Some(ref border_wp) = border.width{
-        css_vec.push(format!("border-width: {}", border.width.as_ref().unwrap()));};
-
-        if let Some(ref border_wp) = border.style{
-        css_vec.push(format!("border-style: {}", border.style.as_ref().unwrap()));};
-
+    // for each section of CSS
+  
+    // border
+    let border = if struct_css.border != None {
+        css_border(struct_css)
+    } else {
+        vec![]
+    };
+    for x in 0..border.len() {
+        css = format!("{css}\n{};", border[x]);
     };
 
-   
-    println!("{:?}", css_vec);
+
+    // end 
+
+    css += "\n}";
+
+    println!("{}", css);
+
+
+
 
 }
 
@@ -108,11 +80,11 @@ fn main() {
 
 
     // toml to struct
-    let div1 = cs2();
+    let div1 = css_import();
 
    
     // struct to CSS
-    struct_to_css(div1.example_div);
+    css_compiler(div1.example_div);
 
 
         
