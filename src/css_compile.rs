@@ -97,12 +97,87 @@ pub fn css_border(struct_css: RsCSS) -> Vec<String> {
             };
         };
 
-        // prefered method
         if let Some(ref border) = border.set {
-        css_vec.push(format!("border: {}", border))};
+            css_vec.push(format!("border: {}", border))};
+        
+        if let Some(ref border) = border.color {
+            css_vec.push(format!("border-color: {}", border))};
+
+        if let Some(ref border) = border.radius {
+            css_vec.push(format!("border-radius: {}", border))};
+
+        if let Some(ref border) = border.width {
+            css_vec.push(format!("border: {}", border))};
+
+        if let Some(ref border) = border.style {
+            css_vec.push(format!("border: {}", border))};
 
     };
 
     return css_vec
+}
 
+
+pub fn css_background(struct_css: RsCSS) -> Vec<String> {
+
+    let mut css_vec: Vec<String> = vec![];
+
+    let background_wp = struct_css.background;
+    
+    if background_wp !=  None {
+
+        let background = background_wp.unwrap();
+
+        if let Some(ref background) = background.set {
+            css_vec.push(format!("background: {}", background))};
+        
+        if let Some(ref background) = background.attachment {
+            css_vec.push(format!("background-attachment: {}", background))};
+        
+        if let Some(ref background) = background.clip {
+            css_vec.push(format!("background-clip: {}", background))};
+
+        if let Some(ref background) = background.color{
+            css_vec.push(format!("background-color: {}", background))};
+
+        if let Some(ref background) = background.image{
+            css_vec.push(format!("background-image: {}", background))};
+
+        if let Some(ref background) = background.origin{
+            css_vec.push(format!("background-origin: {}", background))};
+
+        if let Some(ref background) = background.position{
+            css_vec.push(format!("background-position: {}", background))};
+
+        if let Some(ref background) = background.repeat {
+            css_vec.push(format!("background-repeat: {}", background))};
+
+        if let Some(ref background) = background.size{
+            css_vec.push(format!("background-size: {}", background))};
+    };
+
+
+    return css_vec
+}
+
+
+pub fn css_box(struct_css: RsCSS) -> Vec<String> {
+
+    let mut css_vec: Vec<String> = vec![];
+
+    let box_wp = struct_css.box_;
+
+    if box_wp !=  None {
+
+        let box_ = box_wp.unwrap();
+
+        if let Some(ref box_) = box_.shadow {
+            css_vec.push(format!("box-shadow: {}", box_))};
+
+        if let Some(ref box_) = box_.sizing {
+            css_vec.push(format!("box-sizing: {}", box_))};
+
+    };
+
+    return css_vec
 }
